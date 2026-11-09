@@ -1,5 +1,7 @@
 # CMSC495Group5
 
+Temporary change to demonstrate the branch, pull request, and review workflow.
+
 ## How to make a pull request
 
 A pull request asks to merge your branch's changes into `main`.
