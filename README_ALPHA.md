@@ -1,6 +1,6 @@
 # ToS Scanner — Unit 5 Alpha foundation
 
-This package contains **new files to add to freshdose1/CMSC495Group5**. Preserve the existing README.md and any newer teammate changes. It was prepared locally because this session could not clone GitHub. No branch, commit, pull request or Vercel deployment has been created by this work.
+This is the Alpha foundation for **freshdose1/CMSC495Group5**, published on `feat/unit5-alpha-foundation` in [PR #3](https://github.com/freshdose1/CMSC495Group5/pull/3). The existing team README is preserved. A [Vercel mock preview](https://cmsc495group5-git-feat-unit5-alpha-foundation-cmsc-495.vercel.app/docs) is running; production awaits the team's review and merge. See docs/VALIDATION.md for measured results and remaining gates.
 
 Implemented: Manifest V3 extension; visible active-page extraction; explicit transmission acknowledgement; capped input; evidence-based results rendering; local history of five summaries; configurable production/local backend; FastAPI routes; strict contracts; mock scenarios; AI adapter boundary; automated tests and CI configuration.
 
@@ -39,17 +39,17 @@ node --test tests/extension.test.mjs
 
 Without pytest, core tests can run with `python -m unittest discover -s tests -p 'test_*.py' -v`; FastAPI HTTP tests skip if dependencies are absent. A skipped test is not a passing integration check. See docs/VALIDATION.md for this session's actual results.
 
-## Put the additions into GitHub
+## Continue work in GitHub
 
 In a real clone of the shared repository:
 
 ```text
-git switch main
-git pull origin main
-git switch -c feat/unit5-alpha-foundation
+git fetch origin
+git switch feat/unit5-alpha-foundation
+git pull --ff-only
 ```
 
-Copy this package's contents into that clone (including .github and .gitignore), preserving existing files and resolving any conflicts. Do not copy .venv, caches, secrets or this package's outer folder. Review `git status` and changes; commit the new files, push the feature branch and open a PR for teammate review. Append a link to README_ALPHA.md to the existing README rather than replacing the team's instructions.
+Review `git status` and changes, commit to the feature branch, and push updates to the existing PR for teammate review. Coordinate ownership before changing a teammate's files. Do not commit environments, caches or secrets. Keep the existing team README and review requirements.
 
 ## Vercel
 
