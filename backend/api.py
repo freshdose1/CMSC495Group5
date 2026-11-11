@@ -22,11 +22,15 @@ class BodyLimit:
             message = await receive()
             if message['type'] == 'http.disconnect':
                 return
-            body.extend(message.get('body', b''))
-            if len(body) > self.limit:
+            chunk = message.get('body', b'')
+            # Reject before copying an oversized chunk into our buffer.
+            if len(body) + len(chunk) > self.limit:
                 response = JSONResponse(status_code=413, content={'error': {
                     'code': 'REQUEST_TOO_LARGE', 'message': 'Request exceeds 256,000 bytes.', 'retryable': False}})
+                # Finish the response promptly. The ASGI server manages unread
+                # transport bytes; draining an unbounded upload here can stall.
                 return await response(scope, receive, send)
+            body.extend(chunk)
             if not message.get('more_body', False):
                 break
         sent = False
@@ -43,8 +47,10 @@ class BodyLimit:
 app = FastAPI(title='ToS Scanner Alpha API', version='0.1.0')
 app.add_middleware(BodyLimit)
 origins = [s.strip() for s in os.getenv('ALLOWED_ORIGINS', '').split(',') if s.strip()]
+# CORS wraps BodyLimit so allowed clients can read 413 errors. Preflight
+# requests are answered without buffering an upload. CORS is not authentication.
 app.add_middleware(CORSMiddleware, allow_origins=origins,
-                   allow_origin_regex=None if origins else r'chrome-extension://[a-p]{32}',
+                   allow_origin_regex=None if origins else r'\Achrome-extension://[a-p]{32}\Z',
                    allow_credentials=False, allow_methods=['GET', 'POST'], allow_headers=['Content-Type'])
 
 
