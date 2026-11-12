@@ -1,0 +1,10 @@
+{
+  "manifest_version": 3,
+  "name": "ToS Scanner Alpha",
+  "version": "0.1.0",
+  "description": "Screen public agreement clauses with quoted evidence for human review.",
+  "permissions": ["activeTab", "scripting", "storage"],
+  "host_permissions": ["https://cmsc495group5.vercel.app/*", "http://127.0.0.1:8000/*", "http://localhost:8000/*"],
+  "action": {"default_popup": "popup.html", "default_title": "ToS Scanner Alpha"},
+  "content_security_policy": {"extension_pages": "script-src 'self'; object-src 'none'"}
+}

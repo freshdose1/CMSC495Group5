@@ -1,0 +1,19 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>ToS Scanner Alpha</title><link rel="stylesheet" href="popup.css"></head>
+<body>
+<header><span class="eyebrow">CMSC 495 · ALPHA</span><h1>Terms, made clearer.</h1><p>Screen public agreements for clauses worth reviewing.</p></header>
+<nav aria-label="Sections"><button id="scanTab" aria-pressed="true">Scan</button><button id="historyTab" aria-pressed="false">History</button><button id="settingsTab" aria-pressed="false">Settings</button></nav>
+<main>
+<section id="scanPanel">
+<label class="consent"><input id="consent" type="checkbox">I understand this sends the current page’s extracted text to the backend and, in AI mode, to OpenRouter. I am scanning a public agreement.</label>
+<button id="scan" class="primary" disabled>Scan this page</button>
+<p id="progress" role="status" aria-live="polite"></p>
+<p id="error" role="alert" hidden></p>
+<section id="results" aria-label="Analysis results" hidden></section>
+</section>
+<section id="historyPanel" hidden><h2>Recent scans</h2><p>Last five summaries saved on this device. Full page text is not saved.</p><div id="history"></div><button id="clearHistory">Clear history</button></section>
+<section id="settingsPanel" hidden><h2>Backend connection</h2><label for="endpoint">Backend address</label><input id="endpoint" type="url" spellcheck="false"><button id="saveSettings">Save connection</button><p id="settingsStatus" role="status"></p><p>Local development: http://127.0.0.1:8000</p></section>
+</main>
+<footer>Screening supports human review. Results do not establish legal compliance. Closing this popup cancels the active scan.</footer>
+<script type="module" src="popup.mjs"></script></body></html>

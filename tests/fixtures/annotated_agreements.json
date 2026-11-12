@@ -1,0 +1,15 @@
+{
+  "description": "Synthetic cases for later live-model evaluation; these are not accuracy results or real-world policies.",
+  "cases": [
+    {"id":"sharing", "text":"We may share customer data with advertising partners.", "expected_categories":["third_party_sharing"]},
+    {"id":"license", "text":"You grant us a perpetual license to reproduce submitted business content.", "expected_categories":["content_license"]},
+    {"id":"retention", "text":"Account data may be retained for five years after account closure.", "expected_categories":["data_retention"]},
+    {"id":"arbitration", "text":"All disputes must be resolved through binding individual arbitration.", "expected_categories":["arbitration"]},
+    {"id":"sharing-license", "text":"We may sell usage data to advertisers. You grant us an irrevocable license to your uploaded content.", "expected_categories":["third_party_sharing","content_license"]},
+    {"id":"sharing-retention", "text":"We disclose account data to advertising partners and retain it indefinitely after closure.", "expected_categories":["third_party_sharing","data_retention"]},
+    {"id":"license-retention", "text":"We may sublicense submitted content. Copies of account data remain for ten years after deletion.", "expected_categories":["content_license","data_retention"]},
+    {"id":"no-findings", "text":"These terms describe the spelling and capitalization of the service name only.", "expected_categories":[]},
+    {"id":"negated-sharing", "text":"We do not share customer data with advertising partners.", "expected_categories":[]},
+    {"id":"negated-license", "text":"You retain all ownership. We receive no license to reproduce your business content.", "expected_categories":[]}
+  ]
+}

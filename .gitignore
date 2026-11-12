@@ -1,0 +1,12 @@
+.venv/
+__pycache__/
+.pytest_cache/
+.coverage
+coverage.xml
+htmlcov/
+.env
+.env.*
+!.env.example
+.vercel/
+node_modules/
+test-results/
