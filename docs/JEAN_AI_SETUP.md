@@ -67,7 +67,7 @@ Remove-Variable secureKey
 
 Open http://127.0.0.1:8000/docs and use POST /api/analyze with synthetic text first.
 A health response only confirms the HTTP service is running. Then follow the extension
-loading instructions in README_ALPHA.md; select http://127.0.0.1:8000 in its Settings.
+loading instructions in README.md; select http://127.0.0.1:8000 in its Settings.
 Stop the server with Ctrl+C. Remove the shell key when finished:
 
 ```powershell
@@ -128,6 +128,7 @@ invalid findings; provider failures remain sanitized errors without risk results
 Adds mocked provider/API tests, a gated live smoke command, and Windows setup notes.
 Moves httpx to runtime dependencies and removes the retired example model.
 
-Validation: 35 Python tests and 9 extension tests passed locally. Live Python model,
-browser and deployed integration checks remain pending. JSON mode does not enforce
-schema server-side; local validation remains required.
+Validation: 35 Python tests, 38 subtests, and 9 extension tests passed locally.
+Live Python, HTTP API, and browser-extension tests succeeded on synthetic
+samples. Broader evaluation and deployed live-AI verification remain pending.
+JSON mode does not enforce schema server-side; local validation remains required.
