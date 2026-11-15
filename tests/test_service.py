@@ -60,9 +60,9 @@ class ServiceTests(unittest.TestCase):
             analyze(self.payload)
         self.assertEqual(error.exception.status, 503)
 
-    def test_unimplemented_ai_fails_closed(self):
+    def test_unconfigured_ai_fails_closed(self):
         os.environ['ANALYSIS_MODE'] = 'ai'
-        with self.assertRaises(AnalysisError) as error:
+        with patch.dict(os.environ, {'OPENROUTER_API_KEY': '', 'OPENROUTER_MODEL': ''}), self.assertRaises(AnalysisError) as error:
             analyze(self.payload)
         self.assertEqual(error.exception.code, 'AI_UNAVAILABLE')
 

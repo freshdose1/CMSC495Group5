@@ -4,7 +4,7 @@ This is the Alpha foundation for **freshdose1/CMSC495Group5**, published on `fea
 
 Implemented: Manifest V3 extension; visible active-page extraction; explicit transmission acknowledgement; capped input; evidence-based results rendering; local history of five summaries; configurable production/local backend; FastAPI routes; strict contracts; mock scenarios; AI adapter boundary; automated tests and CI configuration.
 
-**AI integration is intentionally unimplemented. This is not a submission-ready Alpha until the release gates below pass.** Mock results are clearly labelled. Unit 3 work is excluded completely.
+**The OpenRouter AI adapter is implemented; local live Python, HTTP API, and browser-extension tests have succeeded on synthetic samples. Deployed verification and broader evaluation remain pending. This is not a submission-ready Alpha until the release gates below pass.** See docs/JEAN_AI_SETUP.md. Mock results are clearly labelled. Unit 3 work is excluded completely.
 
 ## Run locally
 
