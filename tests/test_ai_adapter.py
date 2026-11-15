@@ -69,8 +69,8 @@ class AdapterTests(unittest.TestCase):
 
     def test_network_and_timeout_fail_closed(self):
         for error in [httpx.ConnectError('private details'), httpx.ReadTimeout('secret')]:
-            def handler(request):
-                raise error
+            def handler(request, _err=error):
+                raise _err
             with self.subTest(error=type(error)), self.mock_provider(handler=handler), self.assertRaises(AnalysisUnavailable) as caught:
                 analyze_with_ai(TEXT)
             self.assertNotIn('private', str(caught.exception))
