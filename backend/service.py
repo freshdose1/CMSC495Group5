@@ -29,10 +29,28 @@ def analyze(payload: AnalyzeRequest) -> AnalyzeResponse:
     elif mode == 'ai':
         try:
             raw = ai_adapter.analyze_with_ai(payload.text)
-        except ai_adapter.AnalysisUnavailable:
-            raise AnalysisError('AI_UNAVAILABLE', 'AI analysis is currently unavailable.', 503, True) from None
-        except Exception:
-            raise AnalysisError('AI_UNAVAILABLE', 'The analysis provider failed.', 503, True) from None
+        except ai_adapter.AnalysisUnavailable as error:
+            print(
+                f"AI adapter unavailable: {error}",
+                flush=True,
+            )
+            raise AnalysisError(
+                'AI_UNAVAILABLE',
+                'AI analysis is currently unavailable.',
+                503,
+                True,
+            ) from None
+        except Exception as error:
+            print(
+                f"AI unexpected failure type: {type(error).__name__}",
+                flush=True,
+            )
+            raise AnalysisError(
+                'AI_UNAVAILABLE',
+                'The analysis provider failed.',
+                503,
+                True,
+            ) from None
     else:
         raise AnalysisError('CONFIGURATION_ERROR', 'Invalid analysis mode configuration.', 503)
     try:
