@@ -28,6 +28,6 @@ This is the application's Alpha foundation. It supports mock analysis so Matt's 
 
 ## Next practical steps
 
-Add the files on a feature branch in the shared repo; install dependencies and run all tests; load the extension and verify it against the local backend; review the code with teammates; deploy and verify a Vercel preview; connect real AI; run the release checklist. The existing team's README.md is deliberately not included/replaced by this package.
+The Alpha foundation was merged in PR #3. Use the [project README](../README.md) to install the extension and try the included sample page, or [DEVELOPMENT.md](DEVELOPMENT.md) to run the backend and automated tests. The project README also preserves the team's pull-request instructions.
 
-The GitHub/Vercel connection already existed. This package does not contain evidence of a new GitHub push or deployment. The present Python/JavaScript test passes establish only their specific tested behavior.
+Connect real AI, complete the installed-extension and deployed checks, obtain teammate reviews and run the release checklist. Record actual evidence in VALIDATION.md; Python/JavaScript test passes establish only their specific tested behavior.
